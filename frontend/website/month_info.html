@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1100">
+    <title>ホロライブ 配信カレンダー</title>
+    <link rel="stylesheet" href="assets/css/month_info.css">
+  </head>
+  <body>
+    <img src="assets/img/hololive_rogo.jpg" width="600" height="120">
+  	<div id="main" class="month_info">
+  	  <ul v-for="dayVideoInfo in dayVideoInfos" class="owner_list">
+  	    <a :href="'day_info.html?day=' + dayVideoInfo.api_day" target="_blank"> {{ dayVideoInfo.day }} </a>
+  	      <span>配信者: </span>
+          <li v-for="videoInfo in dayVideoInfo.video" >
+            <span v-bind:style="videoInfo.name_color">
+              {{ videoInfo.video_owner }}
+            </span>
+          </li>
+  	  </ul>
+  	</div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.bez.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/axios@0.19.0/dist/axios.min.js"></script>
+    <script src="assets/js/month_info.js"></script>
+  </body>
+</html>

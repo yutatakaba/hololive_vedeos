@@ -1,0 +1,16 @@
+.owner_list {
+  font-size: 25px;
+}
+
+.owner_list li {
+  display: inline;
+}
+
+.month_info a {
+  text-decoration: none;
+  color: black;
+}
+
+.month_info a:hover {
+  color: skyblue;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="assets/css/day_info.css">
+	<title>動画情報</title>
+  </head>
+
+  <body>
+    <img src="assets/img/hololive_rogo.jpg" width="600" height="120">
+	  <div id="main" class="day_info">
+	    <div class="site">
+	      <ul class="videos_list">
+          <li v-for="videoInfo in videoInfos">
+            <div class="video_data">
+              <div class="video">
+                <iframe :src="videoInfo.url" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+              </div>
+              <div class="title">
+                <ul class="title_list">
+                  <li>
+                    <span> title: {{ videoInfo.title }} <br></span>
+                  </li>
+                  <li>
+                    <span> channel: </span>
+                    <a :href="videoInfo.channel_url" target="_blank">{{ videoInfo.channel_name }} </a>
+                  </li>
+                </ul>
+                <ul class="day_list">
+                  <li> day: {{ videoInfo.year }} 年</li>
+                  <li> {{ videoInfo.month }} 月</li>
+                  <li> {{ videoInfo.day }} 日</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="channel_all">
+          <ul class="channel_list">
+            <li class="channel_all_title">
+              <span> 所属一覧 </span>
+            </li>
+            <li>
+              <div class="channel_info">
+                <a href="https://www.youtube.com/channel/UC5CwaMl1eIgY8h02uZw7u8A" target="_blank" class="channel_info">
+                  <img src="https://yt3.ggpht.com/a/AATXAJwKuNhye0SEMSrtM5HUe5aVtKyxAvmdDlSpWw=s288-c-k-c0xffffffff-no-rj-mo" width="50" height="50">
+                </a>
+                <span style="color: blue">星街すいせい</span>
+              </div>
+            </li>
+            <li>
+              <div class="channel_info">
+                <a href="https://www.youtube.com/channel/UCl_gCybOJRIgOXw6Qb4qJzQ" target="_blank" class="channel_info">
+                  <img src="https://yt3.ggpht.com/a/AATXAJxpi3N0NvZfBKKkEPPXx2U5xmQPNUT8AVOj1g=s288-c-k-c0xffffffff-no-rj-mo" width="50" height="50">
+                </a>
+                <span style="color: greenyellow">潤羽るしあ</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+	  </div>
+	  <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.bez.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/axios@0.19.0/dist/axios.min.js"></script>
+    <script src="assets/js/day_info.js"></script>
+  </body>
+</html>
