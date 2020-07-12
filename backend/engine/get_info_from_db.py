@@ -73,6 +73,7 @@ def get_day_info(day):
        'month': 4,
        'day': 12,
        'url': 'https://i.ytimg.com/vi/vsJ5Q27M0fQ/hqdefault.jpg',
+       'video_url': 'https://www.youtube.com/watch?v=vsJ5Q27M0fQ',
        'channel_name': 'Suisei Channel',
        'channel_url': 'https://www.youtube.com/channel/UC5CwaMl1eIgY8h02uZw7u8A',
        'collaboration_flag': 0,
@@ -85,6 +86,7 @@ def get_day_info(day):
        'month': 4,
        'day': 12,
        'url': 'https://i.ytimg.com/vi/j1Rrg4BnBjs/hqdefault.jpg',
+       'video_url': 'https://www.youtube.com/watch?v=j1Rrg4BnBjs',
        'channel_name': 'Suisei Channel',
        'channel_url': 'https://www.youtube.com/channel/UC5CwaMl1eIgY8h02uZw7u8A',
        'collaboration_flag': 0,
@@ -99,6 +101,7 @@ def get_day_info(day):
        'url': 'https://i.ytimg.com/vi/zPRpfK7a2I0/hqdefault.jpg',
        'channel_name': 'Suisei Channel',
        'channel_url': 'https://www.youtube.com/channel/UC5CwaMl1eIgY8h02uZw7u8A',
+       'video_url': 'https://www.youtube.com/watch?v=zPRpfK7a2I0',
        'collaboration_flag': 0,
        'collaboration_member': '',
        'video_owner': '星街すいせい'
@@ -108,8 +111,8 @@ def get_day_info(day):
   date_data = datetime.datetime.strptime(day, '%Y%m%d')
   day_video_list = []
   db_info.execute(
-    "SELECT title, year, month, day, url, channel_name, channel_url, collaboration_flag, collaboration_member, "
-    "video_owner FROM video_data where year = {} and month = {} and day = {}".format
+    "SELECT title, year, month, day, url, video_url, channel_name, channel_url, collaboration_flag, "
+    "collaboration_member, video_owner FROM video_data where year = {} and month = {} and day = {}".format
     (date_data.year, date_data.month, date_data.day)
   )
   day_data = db_info.fetchall()
@@ -120,11 +123,12 @@ def get_day_info(day):
       "month": video_data[2],
       "day": video_data[3],
       "url": video_data[4],
-      "channel_name": video_data[5],
-      "channel_url": video_data[6],
-      "collaboration_flag": video_data[7],
-      "collaboration_member": video_data[8],
-      "video_owner": video_data[9]
+      "video_url": video_data[5],
+      "channel_name": video_data[6],
+      "channel_url": video_data[7],
+      "collaboration_flag": video_data[8],
+      "collaboration_member": video_data[9],
+      "video_owner": video_data[10]
     }
     day_video_list.append(video_dict)
 
@@ -132,4 +136,4 @@ def get_day_info(day):
 
 
 if __name__ == "__main__":
-  print(get_mouth_info(2020, 4))
+  print(get_day_info("20200412"))
